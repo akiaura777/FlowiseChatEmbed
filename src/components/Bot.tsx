@@ -329,7 +329,7 @@ export const Bot = (props: BotProps & { class?: string }) => {
         <>
             <div ref={botContainer} class={'relative flex w-full h-full text-base overflow-hidden bg-cover bg-center flex-col items-center chatbot-container ' + props.class}>
                 <div class="flex w-full h-full justify-center">
-                    <div style={{ "padding-bottom": '100px' }} ref={chatContainer} class="overflow-y-scroll min-w-full w-full min-h-full px-3 pt-10 relative scrollable-container chatbot-chat-view scroll-smooth">
+                    <div style={{ "padding-bottom": '170px' }} ref={chatContainer} class="overflow-y-scroll min-w-full w-full min-h-full px-3 pt-10 relative scrollable-container chatbot-chat-view scroll-smooth">
                         <For each={[...messages()]}>
                             {(message, index) => (
                                 <>
@@ -381,6 +381,52 @@ export const Bot = (props: BotProps & { class?: string }) => {
                             )}
                         </For>
                     </div>
+                    <div style={{
+                        "position": "absolute",
+                        "left": "20px",
+                        "right": "20px",
+                        "bottom": "90px",
+                        "margin": "auto",
+                        "z-index": 1000,
+                        "height": "70px",
+                        "display": "flex",
+                        "justify-content": "space-around",
+                        "background-color": "white",
+                    }}>
+                        <button
+                            style={{
+                                "flex": 1,
+                                "display": "flex",
+                                "justify-content": "center",
+                                "align-items": "center",
+                            }}
+                            onClick={() => handleSubmit('Hey')}
+                        >
+                            <span>Hey</span>
+                        </button>
+                        <button
+                            style={{
+                                "flex": 1,
+                                "display": "flex",
+                                "justify-content": "center",
+                                "align-items": "center",
+                            }}
+                            onClick={() => handleSubmit('I need help!')}
+                        >
+                            <span>I need help!</span>
+                        </button>
+                        <button
+                            style={{
+                                "flex": 1,
+                                "display": "flex",
+                                "justify-content": "center",
+                                "align-items": "center",
+                            }}
+                            onClick={() => handleSubmit('Bye!!!')}
+                        >
+                            <span>Bye!!!</span>
+                        </button>
+                    </div>
                     <TextInput
                         backgroundColor={props.textInput?.backgroundColor}
                         textColor={props.textInput?.textColor}
@@ -389,6 +435,7 @@ export const Bot = (props: BotProps & { class?: string }) => {
                         fontSize={props.fontSize}
                         defaultValue={userInput()}
                         onSubmit={handleSubmit}
+                        textToSend={'heee'}
                     />
                 </div>
                 <Badge badgeBackgroundColor={props.badgeBackgroundColor} poweredByTextColor={props.poweredByTextColor} botContainer={botContainer} />
